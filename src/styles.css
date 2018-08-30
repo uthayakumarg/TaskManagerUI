@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+.ngx-datepicker-container { z-index: inherit !important; }
+.ngx-datepicker-calendar-container { z-index: 1; }
+.bottom-margin-10 { margin-bottom: 10px; }
+.right-margin-10 { margin-right: 10px; }
+.zero-padding { padding: 0 }
+.page-header { margin-top: 0; font-size: 16px; font-weight: bold; color: blueviolet; }

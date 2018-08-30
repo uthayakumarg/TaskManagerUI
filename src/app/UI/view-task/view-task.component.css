@@ -1,0 +1,14 @@
+.adjust-float {
+    float:right;
+}
+
+.light-blue {
+    background-color: azure;
+}
+
+@media (max-width: 768px) {
+    .adjust-float {
+        float:left;
+        padding-left: 15px;
+    }
+}

@@ -1,0 +1,97 @@
+<div class="row">
+  <div class="page-header">View Tasks</div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <b>Search Criteria</b>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-1 zero-padding">
+            <label class="adjust-float">Task:</label>
+          </div>
+          <div class="col-sm-5">
+            <input class="form-control" type="text" [(ngModel)]="taskTerm" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-1 zero-padding">
+            <label class="adjust-float">Parent Task:</label>
+          </div>
+          <div class="col-sm-5">
+            <input class="form-control" type="text" [(ngModel)]="parentTerm" />
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-1 zero-padding">
+          <label class="adjust-float">Priority From:</label>
+        </div>
+        <div class="col-sm-2">
+          <input class="form-control" type="text" [(ngModel)]="priorityFrom" />
+        </div>
+        <div class="col-sm-1">
+          <label class="adjust-float">Priority To:</label>
+        </div>
+        <div class="col-sm-2">
+          <input class="form-control" type="text" [(ngModel)]="priorityTo" />
+        </div>
+        <div class="col-sm-1">
+          <label class="adjust-float">Start Date:</label>
+        </div>
+        <div class="col-sm-2">
+          <input class="form-control" type="text" [(ngModel)]="strtDtTerm" />
+        </div>
+        <div class="col-sm-1 zero-padding">
+          <label class="adjust-float">End Date:</label>
+        </div>
+        <div class="col-sm-2">
+          <input class="form-control" type="text" [(ngModel)]="endDtTerm" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="loading">
+  <div class="alert alert-danger">Processing please wait...</div>
+</div>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <b>Tasks</b>
+    </div>
+    <div class="panel-body">
+      <table class="table table-bordered table-responsive table-condensed">
+        <thead class="light-blue">
+          <tr>
+            <th>Task</th>
+            <th>Parent</th>
+            <th>Priority</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks | filter : { TaskName : taskTerm, 
+                            ParentName: parentTerm, 
+                            StartDate: strtDtTerm,
+                            EndDate: endDtTerm } : priorityFrom : priorityTo">
+            <td>{{task.TaskName}}</td>
+            <td>{{task.ParentName}}</td>
+            <td>{{task.Priority}}</td>
+            <td>{{task.StartDate | date: 'MM/dd/yyyy'}}</td>
+            <td>{{task.EndDate | date: 'MM/dd/yyyy'}}</td>
+            <td>
+              <span *ngIf="task.ActiveInd === 'Y'">
+                <button class="btn btn-primary right-margin-10" [routerLink]="['/editTask', task.TaskId]">Edit</button>
+                <button class="btn btn-danger" (click)="endTask(task.TaskId)">End Task</button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
