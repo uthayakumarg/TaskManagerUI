@@ -160,6 +160,8 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   get endDate() { return this.taskForm.get('endDate'); }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    if(this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }
