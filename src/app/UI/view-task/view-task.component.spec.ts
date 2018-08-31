@@ -9,7 +9,7 @@ import { TaskService } from '../../Services/task.service';
 import { APP_BASE_HREF } from '@angular/common';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { FilterPipe } from '../../Pipes/filter.pipe';
-import { MockRouter } from '../../../testing/mock-router'
+import { MockRouter } from '../../../testing/mock-router.mock'
 import { of } from 'rxjs';
 
 const TASKS = MockTasks;

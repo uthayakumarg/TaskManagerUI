@@ -8,7 +8,7 @@ import { AddTaskComponent } from './add-task.component';
 import { TaskService } from '../../Services/task.service';
 import { APP_BASE_HREF } from '@angular/common';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { MockRouter, MockActivatedRoute } from '../../../testing/mock-router'
+import { MockRouter, MockActivatedRoute } from '../../../testing/mock-router.mock'
 import { of } from 'rxjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { NgDatepickerModule } from 'ng2-datepicker';
